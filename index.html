@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Auditoria de Perfil - Hidrogest (Douglas)</title>
+  <title>Sugestão de Perfil - Hidrogest (Douglas)</title>
   
   <script src="https://cdn.tailwindcss.com"></script>
   <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
@@ -50,12 +50,11 @@
     const Linkedin = ({ size = 24, className = "" }) => <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>;
     const Info = ({ size = 24, className = "" }) => <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>;
 
-    // --- Componentes Auxiliares ---
-    const CopyInlineButton = ({ text, label = "Copiar", onCopy }) => (
+    const CopyInlineButton = ({ text, label = "Copiar texto", onCopy }) => (
       <button
         onClick={(e) => { e.stopPropagation(); onCopy(text); }}
         className="flex items-center justify-center gap-1.5 px-3 py-1.5 bg-gradient-to-r from-[#0a66c2] to-[#084e96] hover:from-[#084e96] hover:to-[#063970] text-white text-[11px] uppercase tracking-wider font-bold rounded-full transition-all shadow-[0_4px_10px_rgba(10,102,194,0.3)] hover:shadow-[0_6px_15px_rgba(10,102,194,0.4)] hover:-translate-y-0.5 active:scale-95 shrink-0"
-        title={`Copiar ${label.toLowerCase()}`}
+        title="Clique aqui para copiar"
       >
         <CopyIcon size={14} /> {label}
       </button>
@@ -65,8 +64,7 @@
       const [showCopyModal, setShowCopyModal] = useState(false);
       const [toastMsg, setToastMsg] = useState("");
 
-      // --- DADOS DO DOUGLAS ---
-      const bgPlaceholder = "https://placehold.co/1200x360/0B3B59/ffffff?text=Capa+Institucional+(Em+Desenvolvimento)";
+      const bgPlaceholder = "https://placehold.co/1200x360/0B3B59/ffffff?text=Capa+da+Hidrogest+(Estou+preparando+uma+bem+legal)";
       const logoHidrogest = "https://drive.google.com/thumbnail?id=1aWt-ZBZIvBdviJ3hoYVExMUoQlFEt15O&sz=w200";
       const logoMarinha = "https://ui-avatars.com/api/?name=Marinha+do+Brasil&size=200&background=0284c7&color=fff"; // Representing the CIR
 
@@ -81,9 +79,9 @@
         textArea.select();
         try {
           document.execCommand('copy');
-          setToastMsg("Copiado com sucesso!");
+          setToastMsg("Prontinho! Texto copiado.");
         } catch (err) {
-          setToastMsg("Erro ao copiar.");
+          setToastMsg("Ops, não consegui copiar.");
         }
         document.body.removeChild(textArea);
         setTimeout(() => setToastMsg(""), 3000);
@@ -92,16 +90,16 @@
       const copyTexts = {
         nome: "Douglas Maxiliano Rosa de Oliveira",
         titulo: "Técnico Hidrometrista Júnior & Marinheiro Fluvial | Monitoramento Hidrossedimentológico",
-        sobre: "Profissional dedicado às operações práticas de campo com vasta experiência em Hidrometria e Monitoramento Ambiental.\n\nAtuo diretamente na linha de frente da Hidrogest Engenharia como Técnico Hidrometrista Júnior, onde sou responsável por medições críticas de descarga líquida e amostragem de sedimentos. Minha atuação possui forte impacto em projetos de recuperação ambiental, destacando-se meu envolvimento nas estações da bacia do rio Paraopeba (impactadas pelo rompimento da Barragem B1 - Vale).\n\nPossuo também certificação como Marinheiro Fluvial Auxiliar de Convés (CIR) pela Autoridade Marítima Brasileira e treinamento rigoroso em Primeiros Socorros Avançados (PSA) pela Vale, o que garante a execução de coletas fluviais com o mais alto rigor técnico e segurança.",
-        experienciaHidrogest: "Atuação essencial na linha de frente para o monitoramento e recuperação ambiental.\n\n• Execução de medições de descarga líquida e amostragem de sedimento (suspensão, fundo e arraste) em 13 estações ao longo da bacia do rio Paraopeba (de Brumadinho a Felixlândia).\n• Operação de monitoramento pluviométrico em 11 estações estratégicas (Brumadinho e bacia do ribeirão Ferro Carvão).\n• Instalação, manutenção e operação de estações automáticas telemétricas essenciais para a medição contínua de dados ambientais.\n• Participação direta em serviços vitais de campo para a recuperação dos impactos causados pelo rompimento da Barragem B1 da Mina Córrego do Feijão (Vale).",
-        licencaCIR: "Certificação oficial pela Diretoria de Portos e Costas, habilitando a atuação operacional e segura em embarcações fluviais durante as coletas hidrossedimentológicas."
+        sobre: "Trabalho todos os dias nas operações práticas de campo com muito orgulho e dedicação. Minha área de maior experiência é em Hidrometria e Monitoramento Ambiental.\n\nAtualmente, atuo na linha de frente da Hidrogest Engenharia como Técnico Hidrometrista Júnior, onde faço as medições de descarga líquida e amostragem de sedimentos nos rios. O meu trabalho ajuda diretamente na recuperação do meio ambiente, e fico muito feliz em fazer parte do monitoramento na bacia do rio Paraopeba.\n\nTambém tenho a certificação oficial de Marinheiro Fluvial Auxiliar de Convés (CIR) pela Marinha do Brasil e treinamento de Primeiros Socorros Avançados (PSA) pela Vale. Isso me ajuda a garantir que todo o trabalho nos barcos seja feito com a maior segurança e cuidado possível.",
+        experienciaHidrogest: "Atuo no trabalho de campo ajudando na recuperação ambiental.\n\n• Faço medições nos rios e coletas de sedimentos em 13 estações da bacia do rio Paraopeba (de Brumadinho até Felixlândia).\n• Ajudo no monitoramento de chuvas (pluviométrico) em 11 estações na região de Brumadinho e no ribeirão Ferro Carvão.\n• Trabalho na instalação e manutenção de equipamentos automáticos que enviam dados da água em tempo real.\n• Participo do trabalho de campo essencial para ajudar na recuperação da área após o rompimento da barragem (Mina Córrego do Feijão).",
+        licencaCIR: "Carteira oficial (CIR) emitida pela Marinha do Brasil (Diretoria de Portos e Costas), que me autoriza a trabalhar com segurança nas embarcações durante as coletas nos rios."
       };
 
       return (
         <div className="min-h-screen font-sans pb-16 selection:bg-blue-200">
           
           <div className={`fixed top-24 left-1/2 -translate-x-1/2 z-[100] transition-all duration-500 ${toastMsg ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 -translate-y-4 scale-95 pointer-events-none'}`}>
-            <div className="bg-gradient-to-r from-green-600 to-emerald-700 text-white px-6 py-3 rounded-full shadow-2xl shadow-green-900/20 font-bold flex items-center gap-2 border border-green-500/50">
+            <div className="bg-gradient-to-r from-green-600 to-emerald-700 text-white px-6 py-3 rounded-full shadow-2xl shadow-green-900/20 font-medium flex items-center gap-2 border border-green-500/50">
               <CheckCircle2 size={20} />
               {toastMsg}
             </div>
@@ -110,71 +108,66 @@
           <div className="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-white shadow-sm">
             <div className="max-w-5xl mx-auto px-4 py-4">
 
-              {/* BOTÃO LIQUID GLASS GLOW - VOLTAR PRO HUB */}
               <div className="mb-4">
                 <a 
                   href="https://hidrogest.github.io/hublinkedin/"
                   className="group relative inline-flex items-center justify-center self-start"
-                  title="Voltar para o Hub de Auditorias"
+                  title="Voltar para a página inicial"
                 >
                   <span className="absolute -inset-1 bg-gradient-to-r from-[#0a66c2] via-[#34d399] to-[#0ea5e9] rounded-full blur-md opacity-40 group-hover:opacity-80 animate-pulse transition duration-500"></span>
                   <span className="relative flex items-center gap-2 px-5 py-2 bg-white/20 backdrop-blur-lg border border-white/60 rounded-full shadow-[0_4px_15px_rgba(0,0,0,0.05)] transition-all duration-300 group-hover:bg-white/40 group-hover:shadow-[0_8px_25px_rgba(0,0,0,0.1)] overflow-hidden">
                     <span className="absolute inset-x-0 top-0 h-[45%] bg-gradient-to-b from-white/70 to-transparent rounded-t-full pointer-events-none"></span>
                     <ArrowLeft size={16} className="text-[#0B3B59] group-hover:-translate-x-1 transition-transform duration-300 relative z-10" />
                     <span className="text-[13px] uppercase tracking-wider font-bold text-[#0B3B59] relative z-10">
-                      Voltar pro Hub
+                      Voltar para o Início
                     </span>
                   </span>
                 </a>
               </div>
 
               <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-                
                 <div className="flex items-center gap-3">
                   <div className="bg-gradient-to-br from-[#0B3B59] to-[#062438] text-white p-2.5 rounded-xl shadow-lg shadow-[#0B3B59]/20">
                     <Linkedin size={24} />
                   </div>
                   <div>
-                    <h1 className="font-bold text-xl text-gray-900 leading-tight">Projeto: Criação de Perfil</h1>
-                    <p className="text-sm text-gray-500 font-medium">Colaborador: Douglas Maxiliano</p>
+                    <h1 className="font-bold text-xl text-gray-900 leading-tight">Uma Ideia para o Seu Perfil</h1>
+                    <p className="text-sm text-gray-500 font-medium">Preparado para: Douglas Maxiliano</p>
                   </div>
                 </div>
-
               </div>
             </div>
           </div>
 
           <div className="max-w-5xl mx-auto mt-8 px-4 grid grid-cols-1 lg:grid-cols-4 gap-6">
             
-            { }
             <div className="lg:col-span-1 space-y-4">
               <div className="bg-gradient-to-br from-[#0a66c2] to-[#063970] text-white rounded-2xl shadow-xl border border-blue-400 p-5 sticky top-28 overflow-hidden relative">
                 
-                {/* Elementos decorativos no card */}
                 <div className="absolute top-0 right-0 -mt-4 -mr-4 w-24 h-24 bg-white opacity-5 rounded-full blur-xl"></div>
                 <div className="absolute bottom-0 left-0 -mb-4 -ml-4 w-20 h-20 bg-blue-300 opacity-10 rounded-full blur-lg"></div>
 
                 <h3 className="font-bold text-xl mb-3 flex items-center gap-2 relative z-10">
                   <Rocket size={22} className="text-blue-300" />
-                  Por que estar no LinkedIn?
+                  Por que ter o LinkedIn?
                 </h3>
                 
                 <p className="text-sm text-blue-100 leading-relaxed mb-4 relative z-10">
-                  Douglas, o trabalho que você faz em campo é <strong>vital</strong>. Estar no LinkedIn não é apenas para "quem trabalha em escritório", é para mostrar o valor técnico do seu esforço.
+                  Oi Douglas! Criei esse espaço para te mostrar como o seu trabalho prático é super importante. Muita gente acha que o LinkedIn é só para quem fica no escritório, mas não é. Ele serve muito para mostrar o seu esforço no campo!
                 </p>
 
                 <ul className="space-y-3 mb-6 relative z-10">
                   <li className="flex items-start gap-2">
                     <CheckCircle2 size={16} className="text-blue-300 shrink-0 mt-0.5" />
-                    <span className="text-sm text-blue-50">Mostra a sua evolução de Auxiliar para <strong>Técnico Hidrometrista</strong>.</span>
+                    <span className="text-sm text-blue-50">Podemos mostrar que você subiu de Auxiliar para <strong>Técnico Hidrometrista</strong>.</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle2 size={16} className="text-blue-300 shrink-0 mt-0.5" />
-                    <span className="text-sm text-blue-50">Evidencia a sua certificação da Marinha (CIR).</span>
+                    <span className="text-sm text-blue-50">Dar destaque para a sua carteira da Marinha (CIR), que é um baita diferencial.</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle2 size={16} className="text-blue-300 shrink-0 mt-0.5" />
-                    <span className="text-sm text-blue-50">Dá peso à sua participação na recuperação ambiental de Brumadinho.</span>
+                    <span className="text-sm text-blue-50">Contar um pouco da sua ajuda essencial na recuperação do rio Paraopeba.</span>
                   </li>
                 </ul>
 
@@ -188,17 +181,15 @@
               </div>
             </div>
 
-            {}
             <div className="lg:col-span-3 space-y-4 relative">
               
               <div className="absolute -right-2 -top-6 text-sm font-bold text-gray-400 flex items-center gap-1 uppercase tracking-wider">
-                Projeção do Novo Perfil <ChevronRight size={14}/>
+                Como seu perfil vai ficar <ChevronRight size={14}/>
               </div>
 
-              {/* CARD PRINCIPAL - PROJEÇÃO */}
+              {}
               <div className="bg-white/95 backdrop-blur-xl rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white overflow-hidden relative transition-all duration-500 hover:shadow-lg">
                 
-                {/* Capa */}
                 <div className="w-full relative overflow-hidden group/banner bg-gray-200" style={{ aspectRatio: '10/3', minHeight: '120px' }}>
                   <img 
                     src={bgPlaceholder} 
@@ -210,12 +201,11 @@
 
                 <div className="px-4 sm:px-6 pb-6 relative">
                   
-                  {/* Foto de Perfil Placeholder */}
                   <div className="relative -mt-16 sm:-mt-20 md:-mt-24 mb-3 z-20 inline-block">
                     <div className="w-28 h-28 sm:w-36 sm:h-36 md:w-40 md:h-40 rounded-full border-4 border-white bg-slate-100 shadow-lg relative flex flex-col items-center justify-center overflow-hidden">
                       <div className="absolute inset-0 shimmer"></div>
                       <Camera size={32} className="text-slate-400 relative z-10 mb-1" />
-                      <span className="text-[10px] sm:text-xs font-bold text-slate-400 text-center leading-tight relative z-10 px-2">Aguardando<br/>Foto de Campo</span>
+                      <span className="text-[10px] sm:text-xs font-bold text-slate-400 text-center leading-tight relative z-10 px-2">Nós vamos colocar<br/>uma foto sua aqui</span>
                       <div className="absolute inset-0 ring-1 ring-black/10 rounded-full pointer-events-none z-20"></div>
                     </div>
                   </div>
@@ -240,13 +230,13 @@
                       </div>
                       
                       <div className="mt-3 flex flex-wrap gap-3 sm:gap-4 text-sm font-semibold text-[#0a66c2] inline-flex">
-                        <span className="flex items-center gap-1.5 hover:underline cursor-pointer"><Mail size={16} /> hidrogest@hidrogestengenharia.com.br</span>
-                        <span className="flex items-center gap-1.5 hover:underline cursor-pointer"><Phone size={16} /> (31) 99906-7568</span>
+                        <span className="flex items-center gap-1.5 cursor-pointer"><Mail size={16} /> hidrogest@hidrogestengenharia.com.br</span>
+                        <span className="flex items-center gap-1.5 cursor-pointer"><Phone size={16} /> (31) 99906-7568</span>
                       </div>
                     </div>
 
                     <div className="hidden md:flex flex-col gap-3 items-start sm:items-end w-56 shrink-0 mt-2">
-                      <div className="flex items-center gap-3 w-full justify-end group cursor-pointer">
+                      <div className="flex items-center gap-3 w-full justify-end group">
                         <span className="text-[15px] font-semibold text-gray-900 text-right leading-tight group-hover:text-[#0a66c2] transition-colors">HIDROGEST ENGENHARIA</span>
                         <img src={logoHidrogest} alt="Hidrogest" className="w-10 h-10 shrink-0 object-contain bg-white rounded-lg shadow-sm border border-gray-100 group-hover:scale-105 transition-transform" />
                       </div>
@@ -256,7 +246,6 @@
               </div>
 
               {}
-              {/* CARD SOBRE */}
               <div className="bg-white/95 backdrop-blur-xl rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white p-4 sm:p-6 hover:shadow-lg transition-all duration-300">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-4 gap-3">
                   <h2 className="text-xl font-bold text-gray-900">Sobre</h2>
@@ -266,7 +255,7 @@
                 <div className="bg-blue-50/50 border border-blue-100 rounded-xl p-4 mb-4">
                   <p className="text-sm text-blue-800 flex items-start gap-2">
                     <Info size={18} className="text-blue-500 shrink-0 mt-0.5" />
-                    <span>Criei este texto para valorizar o fato de você estar diretamente envolvido na recuperação de Brumadinho e destacar sua certificação da Marinha.</span>
+                    <span>Eu escrevi esse pequeno texto pensando em contar um pouquinho da sua história. A ideia é mostrar como a sua carteira da Marinha e o seu trabalho duro lá em Brumadinho são coisas para se orgulhar. Pode me avisar se quiser mudar qualquer coisa!</span>
                   </p>
                 </div>
 
@@ -275,11 +264,10 @@
                 </div>
               </div>
 
-              {/* CARD EXPERIÊNCIA */}
+              {}
               <div className="bg-white/95 backdrop-blur-xl rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white p-4 sm:p-6 hover:shadow-lg transition-all duration-300">
-                <h2 className="text-xl font-bold text-gray-900 mb-8">Experiência</h2>
+                <h2 className="text-xl font-bold text-gray-900 mb-8">Sua Experiência</h2>
 
-                {/* HIDROGEST */}
                 <div className="flex gap-3 sm:gap-4 group/exp">
                   <img src={logoHidrogest} alt="Hidrogest" className="shrink-0 w-10 h-10 sm:w-12 sm:h-12 object-contain bg-white shadow-md rounded-lg border border-gray-100 mt-1 z-10 relative group-hover/exp:scale-105 transition-transform" />
                   <div className="flex-1 pb-8 relative">
@@ -292,11 +280,11 @@
                         </h3>
                         <div className="text-[14px] sm:text-[15px] text-gray-900 font-medium mt-0.5">HIDROGEST ENGENHARIA E CONSULTORIA</div>
                       </div>
-                      <CopyInlineButton text={copyTexts.experienciaHidrogest} onCopy={handleCopyText} />
+                      <CopyInlineButton text={copyTexts.experienciaHidrogest} label="Copiar texto" onCopy={handleCopyText} />
                     </div>
                     
                     <div className="text-[14px] sm:text-[15px] text-gray-500 mt-1">
-                      set de 2023 - o momento
+                      Desde setembro de 2023
                     </div>
                     <div className="text-[14px] sm:text-[15px] text-gray-500">Igarapé, Minas Gerais, Brasil</div>
                     
@@ -308,12 +296,9 @@
 
               </div>
 
-              {}
-              {/* LICENÇAS E CERTIFICADOS */}
               <div className="bg-white/95 backdrop-blur-xl rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white p-4 sm:p-6 hover:shadow-lg transition-all duration-300">
                 <h2 className="text-xl font-bold text-gray-900 mb-8">Licenças e certificados</h2>
 
-                {/* CIR MARINHA */}
                 <div className="flex gap-3 sm:gap-4 group/exp">
                   <img src={logoMarinha} alt="Marinha" className="shrink-0 w-10 h-10 sm:w-12 sm:h-12 object-contain bg-white shadow-md rounded-lg border border-gray-100 mt-1 z-10 relative group-hover/exp:scale-105 transition-transform" />
                   <div className="flex-1 pb-2 relative">
@@ -323,13 +308,13 @@
                         <h3 className="text-[16px] sm:text-[17px] font-bold text-gray-900">
                           Marinheiro Fluvial Auxiliar de Convés (CIR)
                         </h3>
-                        <div className="text-[14px] sm:text-[15px] text-gray-900 font-medium mt-0.5">Autoridade Marítima Brasileira (Diretoria de Portos e Costas)</div>
+                        <div className="text-[14px] sm:text-[15px] text-gray-900 font-medium mt-0.5">Marinha do Brasil (Diretoria de Portos e Costas)</div>
                       </div>
-                      <CopyInlineButton text={copyTexts.licencaCIR} label="Copiar CIR" onCopy={handleCopyText} />
+                      <CopyInlineButton text={copyTexts.licencaCIR} label="Copiar licença" onCopy={handleCopyText} />
                     </div>
 
                     <div className="text-[14px] sm:text-[15px] text-gray-500 mt-1">
-                      Emitido em ago de 2025 · Expira em ago de 2030
+                      Emitido em agosto de 2025 · Válido até agosto de 2030
                     </div>
                     
                     <div className="mt-3 text-[14px] sm:text-[15px] text-gray-800 leading-relaxed">
@@ -339,12 +324,12 @@
                 </div>
               </div>
 
-              {/* COMPETÊNCIAS */}
               <div className="bg-white/95 backdrop-blur-xl rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white p-4 sm:p-6 hover:shadow-lg transition-all duration-300">
-                <h2 className="text-xl font-bold text-gray-900 mb-6">Competências Sugeridas</h2>
+                <h2 className="text-xl font-bold text-gray-900 mb-6">Competências que podemos adicionar</h2>
+                <p className="text-sm text-gray-500 mb-4">No LinkedIn, a gente pode colocar essas "etiquetas" que resumem bem o que você sabe fazer:</p>
                 <div className="flex flex-wrap gap-2.5">
-                  {["Operações de Campo", "Hidrometria", "Sedimentometria", "Telemetria", "Condução de Embarcações", "Recuperação Ambiental", "Segurança do Trabalho (PSA)"].map(comp => (
-                    <span key={comp} className="bg-gradient-to-br from-blue-50 to-indigo-50/50 text-[#0B3B59] px-4 py-1.5 rounded-full text-sm font-bold border border-blue-100 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all cursor-default">{comp}</span>
+                  {["Operações de Campo", "Trabalho em Equipe", "Hidrometria", "Sedimentometria", "Telemetria", "Condução de Barcos", "Recuperação do Meio Ambiente", "Segurança do Trabalho"].map(comp => (
+                    <span key={comp} className="bg-gradient-to-br from-blue-50 to-indigo-50/50 text-[#0B3B59] px-4 py-1.5 rounded-full text-sm font-medium border border-blue-100 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all cursor-default">{comp}</span>
                   ))}
                 </div>
               </div>
@@ -353,14 +338,13 @@
           </div>
 
           {}
-          {/* MODAL COPIAR TUDO */}
           {showCopyModal && (
             <div className="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-[100] flex items-center justify-center p-4">
               <div className="bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto flex flex-col border border-white">
                 
                 <div className="sticky top-0 bg-white/90 backdrop-blur-md border-b border-gray-100 px-6 py-4 flex items-center justify-between z-10">
                   <h2 className="text-xl font-bold text-[#0B3B59] flex items-center gap-2">
-                    <CopyIcon size={20} className="text-[#0a66c2]" /> Textos Sugeridos (Douglas)
+                    <CopyIcon size={20} className="text-[#0a66c2]" /> Textos Prontos para Uso
                   </h2>
                   <button onClick={() => setShowCopyModal(false)} className="text-gray-400 hover:text-red-500 hover:bg-red-50 p-2 rounded-full transition-all">
                     <XCircle size={24} />
@@ -368,45 +352,45 @@
                 </div>
 
                 <div className="p-6 space-y-6">
-                  <p className="text-sm text-gray-600 font-medium">Copie os blocos de texto abaixo ao criar o seu LinkedIn:</p>
+                  <p className="text-sm text-gray-600">Oi Douglas! Quando você for fazer o seu cadastro no LinkedIn ou preencher as informações, é só clicar nos botões azuis abaixo. Eles já copiam o texto direitinho para você só colar lá. É bem simples!</p>
                   
                   <div className="border border-gray-100 rounded-xl p-4 bg-gray-50/50 relative group">
-                    <h3 className="text-xs font-bold text-gray-400 mb-2 uppercase tracking-wider">Nome Completo</h3>
+                    <h3 className="text-xs font-bold text-gray-500 mb-2 uppercase tracking-wider">Seu Nome Completo</h3>
                     <p className="text-gray-800 bg-white p-3 rounded-lg border border-gray-200 shadow-sm font-medium">{copyTexts.nome}</p>
                     <button onClick={() => handleCopyText(copyTexts.nome)} className="mt-3 text-sm font-bold text-[#0a66c2] hover:text-[#084e96] flex items-center gap-1 transition-all">
-                      <CopyIcon size={16} /> Copiar Nome
+                      <CopyIcon size={16} /> Clicar para copiar o Nome
                     </button>
                   </div>
 
                   <div className="border border-gray-100 rounded-xl p-4 bg-gray-50/50 relative group">
-                    <h3 className="text-xs font-bold text-gray-400 mb-2 uppercase tracking-wider">Título Profissional</h3>
+                    <h3 className="text-xs font-bold text-gray-500 mb-2 uppercase tracking-wider">Seu Título Profissional</h3>
                     <p className="text-gray-800 bg-white p-3 rounded-lg border border-gray-200 shadow-sm font-medium">{copyTexts.titulo}</p>
                     <button onClick={() => handleCopyText(copyTexts.titulo)} className="mt-3 text-sm font-bold text-[#0a66c2] hover:text-[#084e96] flex items-center gap-1 transition-all">
-                      <CopyIcon size={16} /> Copiar Título
+                      <CopyIcon size={16} /> Clicar para copiar o Título
                     </button>
                   </div>
 
                   <div className="border border-gray-100 rounded-xl p-4 bg-gray-50/50 relative group">
-                    <h3 className="text-xs font-bold text-gray-400 mb-2 uppercase tracking-wider">Resumo (Sobre)</h3>
+                    <h3 className="text-xs font-bold text-gray-500 mb-2 uppercase tracking-wider">Resumo (Quem é você)</h3>
                     <p className="text-gray-800 bg-white p-3 rounded-lg border border-gray-200 shadow-sm whitespace-pre-wrap">{copyTexts.sobre}</p>
                     <button onClick={() => handleCopyText(copyTexts.sobre)} className="mt-3 text-sm font-bold text-[#0a66c2] hover:text-[#084e96] flex items-center gap-1 transition-all">
-                      <CopyIcon size={16} /> Copiar Sobre
+                      <CopyIcon size={16} /> Clicar para copiar o Resumo
                     </button>
                   </div>
 
                   <div className="border border-gray-100 rounded-xl p-4 bg-gray-50/50 relative group">
-                    <h3 className="text-xs font-bold text-gray-400 mb-2 uppercase tracking-wider">Experiência (Hidrogest)</h3>
+                    <h3 className="text-xs font-bold text-gray-500 mb-2 uppercase tracking-wider">Seu Trabalho na Hidrogest</h3>
                     <p className="text-gray-800 bg-white p-3 rounded-lg border border-gray-200 shadow-sm whitespace-pre-wrap">{copyTexts.experienciaHidrogest}</p>
                     <button onClick={() => handleCopyText(copyTexts.experienciaHidrogest)} className="mt-3 text-sm font-bold text-[#0a66c2] hover:text-[#084e96] flex items-center gap-1 transition-all">
-                      <CopyIcon size={16} /> Copiar Experiência Hidrogest
+                      <CopyIcon size={16} /> Clicar para copiar a Experiência
                     </button>
                   </div>
 
                   <div className="border border-gray-100 rounded-xl p-4 bg-gray-50/50 relative group">
-                    <h3 className="text-xs font-bold text-gray-400 mb-2 uppercase tracking-wider">Licença (CIR Marinha)</h3>
+                    <h3 className="text-xs font-bold text-gray-500 mb-2 uppercase tracking-wider">Sua Licença da Marinha</h3>
                     <p className="text-gray-800 bg-white p-3 rounded-lg border border-gray-200 shadow-sm whitespace-pre-wrap">{copyTexts.licencaCIR}</p>
                     <button onClick={() => handleCopyText(copyTexts.licencaCIR)} className="mt-3 text-sm font-bold text-[#0a66c2] hover:text-[#084e96] flex items-center gap-1 transition-all">
-                      <CopyIcon size={16} /> Copiar CIR
+                      <CopyIcon size={16} /> Clicar para copiar a Licença
                     </button>
                   </div>
 
