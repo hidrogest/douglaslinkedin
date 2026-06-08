@@ -71,6 +71,7 @@
       const bgCapaDownload = "https://drive.google.com/uc?export=download&id=1CSNMShM9mS5na9M5BFtszIQYCV4dZwO6";
       const logoHidrogest = "https://drive.google.com/thumbnail?id=1aWt-ZBZIvBdviJ3hoYVExMUoQlFEt15O&sz=w200";
       const logoMarinha = "https://ui-avatars.com/api/?name=Marinha+do+Brasil&size=200&background=0284c7&color=fff"; // Representing the CIR
+      const fotoPerfil = "https://drive.google.com/thumbnail?id=1gvDQxa_8SElXDZleBM26m1VjYn4wuLXt&sz=w400"; // Foto adicionada aqui
 
       const handleCopyText = (text) => {
         const textArea = document.createElement("textarea");
@@ -221,7 +222,6 @@
                 Como seu perfil vai ficar <ChevronRight size={14}/>
               </div>
 
-              {}
               <div className="bg-white/95 backdrop-blur-xl rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white overflow-hidden relative transition-all duration-500 hover:shadow-lg">
                 
                 <div className="w-full relative overflow-hidden group/banner bg-gray-200" style={{ aspectRatio: '10/3', minHeight: '120px' }}>
@@ -250,12 +250,16 @@
                 <div className="px-4 sm:px-6 pb-6 relative">
                   
                   <div className="relative -mt-16 sm:-mt-20 md:-mt-24 mb-3 z-20 inline-block">
+                    {/* INÍCIO DA MODIFICAÇÃO DA FOTO */}
                     <div className="w-28 h-28 sm:w-36 sm:h-36 md:w-40 md:h-40 rounded-full border-4 border-white bg-slate-100 shadow-lg relative flex flex-col items-center justify-center overflow-hidden">
-                      <div className="absolute inset-0 shimmer"></div>
-                      <Camera size={32} className="text-slate-400 relative z-10 mb-1" />
-                      <span className="text-[10px] sm:text-xs font-bold text-slate-400 text-center leading-tight relative z-10 px-2">Nós vamos colocar<br/>uma foto sua aqui</span>
+                      <img 
+                        src={fotoPerfil} 
+                        alt="Douglas Maxiliano" 
+                        className="w-full h-full object-cover relative z-10" 
+                      />
                       <div className="absolute inset-0 ring-1 ring-black/10 rounded-full pointer-events-none z-20"></div>
                     </div>
+                    {/* FIM DA MODIFICAÇÃO DA FOTO */}
                   </div>
 
                   <div className="flex flex-col sm:flex-row justify-between items-start gap-4">
@@ -293,7 +297,6 @@
                 </div>
               </div>
 
-              {}
               <div className="bg-white/95 backdrop-blur-xl rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white p-4 sm:p-6 hover:shadow-lg transition-all duration-300">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-4 gap-3">
                   <h2 className="text-xl font-bold text-gray-900">Sobre</h2>
@@ -312,7 +315,6 @@
                 </div>
               </div>
 
-              {}
               <div className="bg-white/95 backdrop-blur-xl rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white p-4 sm:p-6 hover:shadow-lg transition-all duration-300">
                 <h2 className="text-xl font-bold text-gray-900 mb-8">Sua Experiência</h2>
 
@@ -385,7 +387,6 @@
             </div>
           </div>
 
-          {}
           {showCopyModal && (
             <div className="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-[100] flex items-center justify-center p-4">
               <div className="bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto flex flex-col border border-white">
